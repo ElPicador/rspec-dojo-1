@@ -1,4 +1,12 @@
 RspecDojo1::Application.routes.draw do
+  resources :users
+
+  resources :attachments
+
+  resources :categories
+
+  resources :posts
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

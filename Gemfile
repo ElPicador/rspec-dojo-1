@@ -37,8 +37,9 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'debugger'
 
-group :test do
-	gem 'rspec'
+group :test, :development do
+	gem 'rspec-rails'
 	gem 'shoulda-matchers'
 	gem 'json_spec'
+	gem 'factory_girl'
 end
