@@ -13,4 +13,14 @@ FactoryGirl.define do
 		name { generate :category_name }
 	end
 
+	factory :attachment do
+		filename 'one file.jpg'
+		association :post
+	end
+
+	factory :post do
+		title 'one title'
+		category
+	end
+
 end

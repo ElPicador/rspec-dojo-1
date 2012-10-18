@@ -41,5 +41,5 @@ group :test, :development do
 	gem 'rspec-rails'
 	gem 'shoulda-matchers'
 	gem 'json_spec'
-	gem 'factory_girl'
+	gem 'factory_girl_rails'
 end

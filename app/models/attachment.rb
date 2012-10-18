@@ -3,5 +3,5 @@ class Attachment < ActiveRecord::Base
 
   belongs_to :post
 
-  scope :of_category, ->(category_id) { joins(:post).where(category_id: category_id) }
+  scope :of_category, ->(category_id) { joins(:post).where(posts: {category_id: category_id}) }
 end
