@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Category do
 	context 'validation' do
-		subject { create :category}
+		subject { create :category }
 
 		it { should validate_presence_of :name }
 

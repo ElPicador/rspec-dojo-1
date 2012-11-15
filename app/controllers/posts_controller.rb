@@ -86,7 +86,7 @@ class PostsController < ApplicationController
 		if params.has_key? :user_id
 			User.find(params[:user_id]).posts
 		elsif params.has_key? :category_id
-			User.find(params[:category_id]).posts
+			Category.find(params[:category_id]).posts
 		else
 			Post
 		end

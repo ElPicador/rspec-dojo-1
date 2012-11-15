@@ -161,4 +161,36 @@ describe PostsController do
     end
   end
 
+  describe "search by categories" do
+    let!(:post1) { create :post_with_new_category }
+    let!(:post2) { create :post_with_new_category }
+
+    before { get :index, { category_id: post1.category.id } }
+
+    subject { assigns(:posts) }
+
+    it { should == [ post1 ] }
+    it { should_not include post2 }
+  end
+
+  describe "get by category and post id" do
+    let!(:post) { create :post_with_new_category }
+
+    subject { assigns(:post) }
+
+    context "accessing a post in the category" do
+      before { get :show, { category_id: post.category.id, id: post.id } }
+
+      it { should == post }
+    end
+
+    context "accessing a post outside the category" do
+      let!(:other_post) { create :post_with_new_category }
+      def the_query
+        get :show, { category_id: post.category.id, id: other_post.id }
+      end
+
+      it { expect { the_query }.to raise_error ActiveRecord::RecordNotFound }
+    end
+  end
 end

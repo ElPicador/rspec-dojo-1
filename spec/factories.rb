@@ -20,7 +20,10 @@ FactoryGirl.define do
 
 	factory :post do
 		title 'one title'
-		category
+
+		factory :post_with_new_category do
+			category
+		end
 	end
 
 end
